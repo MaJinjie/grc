@@ -86,7 +86,7 @@ cmds=(
 # Set alias for available commands.
 for cmd in ${cmds:|GRC_NO_CMDS} ; do
     if (( $+commands[$cmd] )) ; then
-        alias $cmd="${0:h}/grc --config=${0:h}/colourfiles/conf.$cmd $commands[$cmd]"
+        alias $cmd="${0:h}/grc -- $commands[$cmd]"
     fi
 done
 
