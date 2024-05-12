@@ -85,7 +85,7 @@ cmds=(
 )
 # Set alias for available commands.
 for cmd in ${cmds:|GRC_NO_CMDS} ; do
-    if (( $+commands[$cmd] )) ; then
+  if (( $+commands[$cmd])) && ((! $+aliases[$cmd] || GRC_OVERRIDE)) ; then
         alias $cmd="grc -- $commands[$cmd]"
     fi
 done
